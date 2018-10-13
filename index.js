@@ -3,9 +3,9 @@ const tabula = require('tabula-js');
 const readline = require('readline');
 const {google} = require('googleapis');
 
-
 const source1 = tabula("./pdf/1.pdf", {pages: "1-2"})
 const source2 = tabula("./pdf/2.pdf", {pages: "1-2"})
+
 const sources = [source1, source2]; 
 
 for (let i = 0; i < sources.length; i++) {
@@ -217,8 +217,3 @@ for (let i = 0; i < sources.length; i++) {
         }
     });
 }
-
-
-
-
-
