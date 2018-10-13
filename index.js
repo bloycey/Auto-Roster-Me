@@ -183,7 +183,7 @@ for (let i = 0; i < sources.length; i++) {
                 if (shifts[property].shiftStart !== '') {
                     let event = {
                         'summary': shifts[property].title,
-                        'location': 'Grey St & Melbourne Street, South Brisbane QLD 4101',
+                        'location': 'Queensland Performing Arts Centre',
                         'description': 'QPAC Shift created with Node',
                         'colorId': '5',
                         'start': {
