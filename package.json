@@ -1,0 +1,8 @@
+{
+  "name": "Auto Roster Me",
+  "version": "1",
+  "dependencies": {
+    "googleapis": "^34.0.0",
+    "tabula-js": "^1.0.1"
+  }
+}
