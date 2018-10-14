@@ -53,59 +53,30 @@ for (let i = 0; i < sources.length; i++) {
         const saturdayDateRaw = dates[6].replace("Sat ", '').split("/");
         const sundayDateRaw = dates[7].replace("Sun ", '').split("/");
 
-        const shifts = {
-            monday: {
-                title: "QPAC " + getLocation(currentWeek[2]),
-                date: formatDate(mondayDateRaw),
-                shiftStart: shiftStart(currentWeek[2]),
-                shiftEnd: shiftEnd(currentWeek[2]),
-                location: getLocation(currentWeek[2])
-            },
-            tuesday: {
-                title: "QPAC " + getLocation(currentWeek[3]),
-                date: formatDate(tuesdayDateRaw),
-                shiftStart: shiftStart(currentWeek[3]),
-                shiftEnd: shiftEnd(currentWeek[3]),
-                location: getLocation(currentWeek[3])
-            },
-            wednesday: {
-                title: "QPAC " + getLocation(currentWeek[4]),
-                date: formatDate(wednesdayDateRaw),
-                shiftStart: shiftStart(currentWeek[4]),
-                shiftEnd: shiftEnd(currentWeek[4]),
-                location: getLocation(currentWeek[4])
-            },
-            thursday: {
-                title: "QPAC " + getLocation(currentWeek[5]),
-                date: formatDate(thursdayDateRaw),
-                shiftStart: shiftStart(currentWeek[5]),
-                shiftEnd: shiftEnd(currentWeek[5]),
-                location: getLocation(currentWeek[5])
-            },
-            friday: {
-                title: "QPAC " + getLocation(currentWeek[6]),
-                date: formatDate(fridayDateRaw),
-                shiftStart: shiftStart(currentWeek[6]),
-                shiftEnd: shiftEnd(currentWeek[6]),
-                location: getLocation(currentWeek[6])
-            },
-            saturday: {
-                title: "QPAC " + getLocation(currentWeek[7]),
-                date: formatDate(saturdayDateRaw),
-                shiftStart: shiftStart(currentWeek[7]),
-                shiftEnd: shiftEnd(currentWeek[7]),
-                location: getLocation(currentWeek[7])
-            },
-            sunday: {
-                title: "QPAC " + getLocation(currentWeek[8]),
-                date: formatDate(sundayDateRaw),
-                shiftStart: shiftStart(currentWeek[8]),
-                shiftEnd: shiftEnd(currentWeek[8]),
-                location: getLocation(currentWeek[8])
-            }
+        // Object Constructor
+        function shift(day, index) {
+            let shift = {};
+            shift.title = "QPAC " + getLocation(currentWeek[index]);
+            shift.date = formatDate(day);
+            shift.shiftStart = shiftStart(currentWeek[index]);
+            shift.shiftEnd = shiftEnd(currentWeek[index]);
+            shift.location = getLocation(currentWeek[index]);
+            return shift;
         }
 
-        // console.log(shifts);
+        // console.log(shift(mondayDateRaw, 2))
+
+        const shifts = {
+            monday: shift(mondayDateRaw, 2),
+            tuesday: shift(tuesdayDateRaw, 3),
+            wednesday: shift(wednesdayDateRaw, 4),
+            thursday: shift(thursdayDateRaw, 5),
+            friday: shift(fridayDateRaw, 6),
+            saturday: shift(saturdayDateRaw, 7),
+            sunday: shift(sundayDateRaw, 8)
+        }
+
+        console.log(shifts);
 
 
         /******CREATE GOOGLE CALENDAR EVENTS ****/
