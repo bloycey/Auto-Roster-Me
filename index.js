@@ -64,8 +64,6 @@ for (let i = 0; i < sources.length; i++) {
             return shift;
         }
 
-        // console.log(shift(mondayDateRaw, 2))
-
         const shifts = {
             monday: shift(mondayDateRaw, 2),
             tuesday: shift(tuesdayDateRaw, 3),
@@ -75,9 +73,6 @@ for (let i = 0; i < sources.length; i++) {
             saturday: shift(saturdayDateRaw, 7),
             sunday: shift(sundayDateRaw, 8)
         }
-
-        console.log(shifts);
-
 
         /******CREATE GOOGLE CALENDAR EVENTS ****/
 
