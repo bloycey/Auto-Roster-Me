@@ -14,24 +14,27 @@ for (let i = 0; i < sources.length; i++) {
         const roster = data;
         const dates = roster[0].split(',');
 
+        // Find my row in the roster
         function findName(input) {
             return input.includes("Bloyce");
         }
 
         const nameIndex = roster.findIndex(findName);
-        
         const currentWeek = roster[nameIndex].split(',');
 
+        // Function to find the shift starting time
         function shiftStart(raw) {
             let start = raw.replace('"', '').substring(0,5);
             return start;
         }
-
+        
+        // Function to find the shift end time
         function shiftEnd(raw) {
             let end = raw.replace('"', '').substring(6,11);
             return end;
         }
-
+        
+        // Where in QPAC am I working
         function getLocation(raw) {
             let location = raw.replace('"', '').slice(14);
             return location
@@ -45,6 +48,7 @@ for (let i = 0; i < sources.length; i++) {
                 return "2018-" + pad(rawDate[1]) + "-" + pad(rawDate[0]);
         }
 
+        // Format the data
         const mondayDateRaw = dates[1].replace("Mon ", '').split("/");
         const tuesdayDateRaw = dates[2].replace("Tue ", '').split("/");
         const wednesdayDateRaw = dates[3].replace("Wed ", '').split("/");
@@ -53,7 +57,7 @@ for (let i = 0; i < sources.length; i++) {
         const saturdayDateRaw = dates[6].replace("Sat ", '').split("/");
         const sundayDateRaw = dates[7].replace("Sun ", '').split("/");
 
-        // Object Constructor
+        // Object Constructor to create the object needed for the calendar API
         function shift(day, index) {
             let shift = {};
             shift.title = "QPAC " + getLocation(currentWeek[index]);
